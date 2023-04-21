@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import confetti from 'canvas-confetti'
 const TURNS = {
   X: 'x',
   O: 'O'
@@ -60,6 +60,7 @@ function App () {
     setTurn(newTurn)
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
+      confetti(2)
       setWinner(newWinner)
     } else {
       const isBoardFull = newBoard.every((square) => square !== null)
